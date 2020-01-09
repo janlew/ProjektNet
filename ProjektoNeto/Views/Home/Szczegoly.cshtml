@@ -1,0 +1,23 @@
+﻿@model Samochod
+
+<h2> @Model.Marka @Model.Model</h2>
+
+<div class="thumbnail">
+    <img alt="@Model.Marka" src="@Model.ZdjecieUrl" />
+    <div class="caption-full">
+        <h3 class="pull-right">Cena: @Model.Cena.ToString("c")</h3>
+        <second-tag-helper marka="@Model.Marka" model="@Model.Model" rok-produkcji="@Model.RokProdukcji" przebieg="@Model.Przebieg" pojemnosc="@Model.Pojemnosc" moc="@Model.Moc" opis="@Model.Opis"></second-tag-helper>
+
+        
+        <h3>Id: @Model.Id</h3>
+
+        @if (Model.Opinie != null)
+        {
+            @foreach (var opinia in Model.Opinie)
+            {
+                <h2>@opinia.Wiadomosc</h2>
+            }
+        }
+
+    </div>
+</div>

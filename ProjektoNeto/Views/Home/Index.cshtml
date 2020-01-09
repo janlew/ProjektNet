@@ -1,0 +1,20 @@
+﻿@model HomeVM
+
+<h2>@Model.Tytul</h2>
+
+
+@foreach (var samochod in Model.Samochody)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <a asp-controller="Home" asp-action="Szczegoly" asp-route-id="@samochod.Id">
+                <img src="@samochod.MiniaturkaUrl" alt="">
+            </a>
+            <div class="caption">
+                <h3 class="pull-right">@samochod.Cena.ToString("c")</h3>
+                <second-tag-helper marka="@samochod.Marka" model="@samochod.Model" rok-produkcji="@samochod.RokProdukcji" przebieg="@samochod.Przebieg" pojemnosc="@samochod.Pojemnosc" moc="@samochod.Moc" opis="@samochod.Opis"></second-tag-helper>
+                
+            </div>
+        </div>
+    </div>
+}
